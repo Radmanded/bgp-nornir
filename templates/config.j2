@@ -1,0 +1,11 @@
+router bgp 100
+{% for neighbor in bgp %}
+ neighbor {{ neighbor.ip }} description {{ neighbor.name }}
+ neighbor {{ neighbor.ip }} remote-as {{ neighbor.asn }}
+ neighbor {{ neighbor.ip }} inherit peer-session peeringdb
+ neighbor {{ neighbor.ip }} ttl-security hops 1
+ neighbor {{ neighbor.ip }} maximum-prefix 800 90 restart 60
+ neighbor {{ neighbor.ip }} activate
+ neighbor {{ neighbor.ip }} inherit peer-policy
+ address-family ipv4 unicast
+{% endfor %}

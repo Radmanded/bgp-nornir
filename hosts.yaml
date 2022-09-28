@@ -1,0 +1,7 @@
+---
+R1:
+    hostname: "10.37.129.5"
+    username: "ruben"
+    password: "cisco"
+    platform: "ios"
+
