@@ -1,0 +1,9 @@
+scrapli_netconf
+scrapli_netconf/channel
+scrapli_netconf/driver
+scrapli_netconf/transport
+scrapli_netconf/transport/plugins
+scrapli_netconf/transport/plugins/asyncssh
+scrapli_netconf/transport/plugins/paramiko
+scrapli_netconf/transport/plugins/ssh2
+scrapli_netconf/transport/plugins/system

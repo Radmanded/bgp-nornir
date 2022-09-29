@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: scrapli-netconf
+Version: 2022.7.30
+Summary: Fast, flexible, sync/async, Python 3.6+ NETCONF client built on scrapli
+Home-page: https://github.com/scrapli/scrapli_netconf
+Author: Carl Montanari
+Author-email: carl.r.montanari@gmail.com
+License: MIT
+Project-URL: Changelog, https://scrapli.github.io/scrapli_netconf/changelog/
+Project-URL: Docs, https://scrapli.github.io/scrapli_netconf/
+Keywords: ssh telnet netconf automation network cisco iosxr iosxe nxos arista eos juniper junos
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: lxml (<5.0.0,>=4.5.1)
+Requires-Dist: scrapli (>=2022.07.30)
+Provides-Extra: asyncssh
+Requires-Dist: asyncssh (>=2.2.1) ; extra == 'asyncssh'
+Provides-Extra: full
+Requires-Dist: paramiko (>=2.6.0) ; extra == 'full'
+Requires-Dist: ssh2-python (>=0.23.0) ; extra == 'full'
+Requires-Dist: asyncssh (>=2.2.1) ; extra == 'full'
+Provides-Extra: paramiko
+Requires-Dist: paramiko (>=2.6.0) ; extra == 'paramiko'
+Provides-Extra: ssh2
+Requires-Dist: ssh2-python (>=0.23.0) ; extra == 'ssh2'
+
+[![Supported Versions](https://img.shields.io/pypi/pyversions/scrapli-netconf.svg)](https://pypi.org/project/scrapli-netconf)
+[![PyPI version](https://badge.fury.io/py/scrapli-netconf.svg)](https://badge.fury.io/py/scrapli-netconf)
+[![Weekly Build](https://github.com/scrapli/scrapli_netconf/workflows/Weekly%20Build/badge.svg)](https://github.com/scrapli/scrapli_netconf/actions?query=workflow%3A%22Weekly+Build%22)
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
+
+scrapli_netconf
+===============
+
+---
+
+**Documentation**: <a href="https://scrapli.github.io/scrapli_netconf" target="_blank">https://scrapli.github.io/scrapli_netconf</a>
+
+**Source Code**: <a href="https://github.com/scrapli/scrapli_netconf" target="_blank">https://github.com/scrapli/scrapli_netconf</a>
+
+**Examples**: <a href="https://github.com/scrapli/scrapli_netconf/tree/master/examples" target="_blank">https://github.com/scrapli/scrapli_netconf/tree/master/examples</a>
+
+---
+
+scrapli_netconf is a NETCONF driver built on top of scrapli, giving you all the scrapli behaviour you know and love, 
+but for NETCONF connections.
+
+
+#### Key Features:
+
+- __Easy__: Just like scrapli, scrapli_netconf is easy to get going with, and looks and feels just like "normal" 
+  scrapli -- check out the documentation and example links above, and you'll be connecting to devices in no time.
+- __Fast__: Do you like to go fast? Of course you do! scrapli_netconf supports all of the ssh transports that 
+  scrapli core supports; check out the `ssh2` transport if you've got the need for speed!
+- __Great Developer Experience__: scrapli_netconf has great editor support thanks to being fully typed; that plus 
+  thorough docs make developing with scrapli a breeze.
+- __Well Tested__: Perhaps out of paranoia, but regardless of the reason, scrapli_netconf has lots of tests! Unit tests 
+  cover the basics, regularly ran functional tests connect to virtual routers to ensure that everything works IRL! 
+- __Concurrency on Easy Mode__: [Nornir's](https://github.com/nornir-automation/nornir) 
+  [scrapli plugin](https://github.com/scrapli/nornir_scrapli) gives you all the normal benefits of scrapli __plus__ 
+  all the great features of Nornir.
+
+
+## Requirements
+
+MacOS or \*nix<sup>1</sup>, Python 3.7+
+
+scrapli_netconf's only requirements are `scrapli`, of course, and `lxml`.
+
+<sup>1</sup> Although many parts of scrapli *do* run on Windows, Windows is not officially supported
+
+
+## Installation
+
+```
+pip install scrapli_netconf
+```
+
+See the [docs](https://scrapli.github.io/scrapli_netconf/user_guide/installation) for other installation methods/details.
+
+
+
+## A Simple Example
+
+```python
+from scrapli_netconf.driver import NetconfDriver
+
+my_device = {
+    "host": "172.18.0.13",
+    "auth_username": "scrapli",
+    "auth_password": "scrapli",
+    "auth_strict_key": False,
+    "port": 830
+}
+
+conn = NetconfDriver(**my_device)
+conn.open()
+response = conn.get_config(source="running")
+print(response.result)
+```
+
+

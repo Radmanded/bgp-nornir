@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: nornir-jinja2
+Version: 0.2.0
+Summary: Jinja2 plugins for nornir
+License: Apache-2.0
+Author: David Barroso
+Author-email: dbarrosop@dravetech.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: jinja2 (>=2.11.2,<4)
+Requires-Dist: nornir (>=3,<4)

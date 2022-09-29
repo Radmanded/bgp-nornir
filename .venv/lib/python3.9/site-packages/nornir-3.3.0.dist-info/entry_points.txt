@@ -1,0 +1,7 @@
+[nornir.plugins.inventory]
+SimpleInventory=nornir.plugins.inventory.simple:SimpleInventory
+
+[nornir.plugins.runners]
+serial=nornir.plugins.runners:SerialRunner
+threaded=nornir.plugins.runners:ThreadedRunner
+

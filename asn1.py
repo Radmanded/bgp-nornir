@@ -12,7 +12,7 @@ def get_api():
     # Import jinja2 module
     from jinja2 import Environment, PackageLoader, select_autoescape
     env = Environment(
-        loader=PackageLoader("asn"),
+      #  loader=PackageLoader("asn"),
         autoescape=select_autoescape()
     )
 

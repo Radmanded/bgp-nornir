@@ -1,0 +1,3 @@
+[nornir.plugins.connections]
+napalm=nornir_napalm.plugins.connections:Napalm
+

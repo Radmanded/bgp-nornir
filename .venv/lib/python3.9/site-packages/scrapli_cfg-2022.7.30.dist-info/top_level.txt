@@ -1,0 +1,9 @@
+scrapli_cfg
+scrapli_cfg/platform
+scrapli_cfg/platform/base
+scrapli_cfg/platform/core
+scrapli_cfg/platform/core/arista_eos
+scrapli_cfg/platform/core/cisco_iosxe
+scrapli_cfg/platform/core/cisco_iosxr
+scrapli_cfg/platform/core/cisco_nxos
+scrapli_cfg/platform/core/juniper_junos

@@ -1,0 +1,6 @@
+[nornir.plugins.inventory]
+YAMLInventory=nornir_utils.plugins.inventory.yaml_inventory:YAMLInventory
+
+[nornir.plugins.transform_function]
+load_credentials=nornir_utils.plugins.inventory.transform_functions:load_credentials
+
